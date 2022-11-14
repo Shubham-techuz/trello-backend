@@ -23,7 +23,7 @@ app.post("/", async (req,res) => {
 });
 
 
-app.listen(process.env.PORT);
+app.listen(5000);
 
 
 // To resolve the issue of CORS
