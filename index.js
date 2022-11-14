@@ -5,6 +5,7 @@ const CardDetail = require('./schemas/cardDetail');
 require('dotenv').config()
 
 const app = express();
+const port = process.env.PORT || 5000
 
 app.use(express.json());
 app.use(cors());
@@ -23,7 +24,9 @@ app.post("/", async (req,res) => {
 });
 
 
-app.listen(process.env.PORT);
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`)
+});
 
 
 // To resolve the issue of CORS
