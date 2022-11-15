@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
 const cardDetailSchema = new mongoose.Schema({
-    userId: String,
-    name: String,
+    cardId: String,
+    cardName: String,
     startTime: String,
-    stopTime: String
+    stopTime: String,
+    totalTime: String
 });
 
 module.exports = mongoose.model('card_detail',cardDetailSchema);
