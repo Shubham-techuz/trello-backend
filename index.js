@@ -16,11 +16,11 @@ app.use(cors());
 // })
 
 // Getting the complete Timestamp 
-app.get("/timestamp", async (req,res) => {
+app.get("/timestamp:id", async (req,res) => {
     try {
-        let completeTime = await CompleteTime.find();
-        if(completeTime.length > 0){
-            res.send(completeTime);
+        let result = await CompleteTime.findOne({_id: req.params.id});
+        if(result){
+            res.send(result);
         }else{
             res.send({result: "No Timestamp found"});
         }
@@ -30,7 +30,7 @@ app.get("/timestamp", async (req,res) => {
 });
 
 // Made changes to TimeStamp
-app.put("/timestamp", async (req,res) => {
+app.put("/timestamp:id", async (req,res) => {
     try {
         let result = await CompleteTime.updateOne(
             {_id: req.params.id},
@@ -48,6 +48,9 @@ app.put("/timestamp", async (req,res) => {
 app.post("/timestamp", async (req,res) => {
     try {
         let completeTime = new CompleteTime(req.body);
+        // const a = matchMedia.query().getByid(id)
+        // const ttl = a.totaltime + req.body.totaltime
+        // matchMedia.query().updagtebyid()
         let result = await completeTime.save();
         res.send(result);
     } catch(err) {
