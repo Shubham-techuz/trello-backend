@@ -18,7 +18,7 @@ app.use(cors());
 // Getting the complete Timestamp 
 app.get("/timestamp/:id", async (req,res) => {
     try {
-        let result = await CompleteTime.findOne({_id: req.params.id});
+        let result = await CompleteTime.findOne({cardId: req.params.id});
         if(result){
             res.send(result);
         }else{
@@ -33,7 +33,7 @@ app.get("/timestamp/:id", async (req,res) => {
 app.put("/timestamp/:id", async (req,res) => {
     try {
         let result = await CompleteTime.updateOne(
-            {_id: req.params.id},
+            {cardId: req.params.id},
             {
                  $set: req.body
             }
