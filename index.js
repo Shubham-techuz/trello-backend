@@ -48,9 +48,6 @@ app.put("/timestamp:id", async (req,res) => {
 app.post("/timestamp", async (req,res) => {
     try {
         let completeTime = new CompleteTime(req.body);
-        // const a = matchMedia.query().getByid(id)
-        // const ttl = a.totaltime + req.body.totaltime
-        // matchMedia.query().updagtebyid()
         let result = await completeTime.save();
         res.send(result);
     } catch(err) {
@@ -80,3 +77,8 @@ app.listen(port, () => {
 
 // To resolve the issue of CORS
 // install (npm i cors) 
+
+
+// const a = matchMedia.query().getByid(id)
+        // const ttl = a.totaltime + req.body.totaltime
+        // matchMedia.query().updagtebyid()
