@@ -16,7 +16,7 @@ app.use(cors());
 // })
 
 // Getting the complete Timestamp 
-app.get("/timestamp:id", async (req,res) => {
+app.get("/timestamp/:id", async (req,res) => {
     try {
         let result = await CompleteTime.findOne({_id: req.params.id});
         if(result){
@@ -30,7 +30,7 @@ app.get("/timestamp:id", async (req,res) => {
 });
 
 // Made changes to TimeStamp
-app.put("/timestamp:id", async (req,res) => {
+app.put("/timestamp/:id", async (req,res) => {
     try {
         let result = await CompleteTime.updateOne(
             {_id: req.params.id},
