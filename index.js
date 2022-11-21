@@ -11,9 +11,6 @@ const port = process.env.PORT || 5000
 app.use(express.json());
 app.use(cors());
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-// })
 
 // Getting the complete Timestamp 
 app.get("/timestamp/:id", async (req,res) => {
@@ -65,7 +62,6 @@ app.post("/", async (req,res) => {
     } catch(err) {
         console.log("Error-----> ",err);
     }
-    // res.send("app is working....");
 });
 
 
@@ -74,11 +70,3 @@ app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`)
 });
 
-
-// To resolve the issue of CORS
-// install (npm i cors) 
-
-
-// const a = matchMedia.query().getByid(id)
-        // const ttl = a.totaltime + req.body.totaltime
-        // matchMedia.query().updagtebyid()
